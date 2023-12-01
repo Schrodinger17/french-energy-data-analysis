@@ -1,0 +1,33 @@
+# Load the data
+```{r}
+# load data.csv file
+row_data <- read.csv("courbe-de-charge-de-la-production-delectricite-par-filiere.csv", header = TRUE, sep = ";")
+```
+
+# Data summary
+```{r}
+# print the data summary
+summary(data)
+```
+
+
+# Data visualization
+```{r}
+# convert date_heure column to date format
+data$date_heure <- as.Date(data$date_heure, format = "%d/%m/%Y %H:%M")
+
+# visualize dates distribution
+hist(data$date_heure, breaks = 100, main = "Distribution des dates", xlab = "Date")
+
+```
+
+
+# Data visualization
+```{r}
+# load ggplot2 package
+library(ggplot2)
+
+# plot the data
+ggplot(data, aes(x = date_heure, y = production_totale_mw, color = Filière)) + geom_line() + geom_point() + labs(title = "Production d'électricité par filière", x = "Année", y = "Production (GWh)")
+
+```
