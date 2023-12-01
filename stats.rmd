@@ -2,12 +2,13 @@
 ```{r}
 # load data.csv file
 row_data <- read.csv("courbe-de-charge-de-la-production-delectricite-par-filiere.csv", header = TRUE, sep = ";")
+attach(row_data)
 ```
 
 # Data summary
 ```{r}
 # print the data summary
-summary(data)
+summary(row_data)
 ```
 
 
