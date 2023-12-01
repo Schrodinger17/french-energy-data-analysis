@@ -1,3 +1,11 @@
+
+### Présentation des données
+fichier eco2mix : contient les données de la consommation éléctrique en France.
+Cela comporte la consommation, la production, échanges commerciaux d'électricité, émission de CO2, 
+
+## Questions 
+
+
 # Load the data
 ```{r}
 # load data.csv file
@@ -12,13 +20,18 @@ summary(row_data)
 ```
 
 
+# Data preparation
+```{r}
+
+```
+
 # Data visualization
 ```{r}
 # convert date_heure column to date format
-data$date_heure <- as.Date(data$date_heure, format = "%d/%m/%Y %H:%M")
+row_data$date_heure <- as.Date(row_data$date_heure, format = "%d/%m/%Y %H:%M")
 
 # visualize dates distribution
-hist(data$date_heure, breaks = 100, main = "Distribution des dates", xlab = "Date")
+hist(row_data$date_heure, breaks = 100, main = "Distribution des dates", xlab = "Date")
 
 ```
 
@@ -29,6 +42,6 @@ hist(data$date_heure, breaks = 100, main = "Distribution des dates", xlab = "Dat
 library(ggplot2)
 
 # plot the data
-ggplot(data, aes(x = date_heure, y = production_totale_mw, color = Filière)) + geom_line() + geom_point() + labs(title = "Production d'électricité par filière", x = "Année", y = "Production (GWh)")
+ggplot(row_data, aes(x = date_heure, y = production_totale_mw, color = Filière)) + geom_line() + geom_point() + labs(title = "Production d'électricité par filière", x = "Année", y = "Production (GWh)")
 
 ```
