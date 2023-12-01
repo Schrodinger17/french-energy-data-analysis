@@ -1,7 +1,11 @@
 # Load the data
+
+Dataset source : https://www.rte-france.com/eco2mix/telecharger-les-indicateurs
+
 ```{r}
 # load data.csv file
-row_data <- read.csv("courbe-de-charge-de-la-production-delectricite-par-filiere.csv", header = TRUE, sep = ";")
+# row_data <- read.csv("courbe-de-charge-de-la-production-delectricite-par-filiere.csv", header = TRUE, sep = ";")
+row_data <- read.csv("eCO2mix_RTE_En-cours-TR.csv", header = TRUE, sep = " ")
 attach(row_data)
 ```
 
