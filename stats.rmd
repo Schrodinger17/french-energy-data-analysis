@@ -15,10 +15,15 @@ summary(row_data)
 # Data visualization
 ```{r}
 # convert date_heure column to date format
-data$date_heure <- as.Date(data$date_heure, format = "%d/%m/%Y %H:%M")
+mydatetime = as.POSIXct('2016-01-01T00:00:00+01:00', tz = 'PST8PDT')
+print(mydatetime)
+
+date_format = "%Y-%m-%d'T'%h:%m:%s%Z"
+data$date_heure <- as.Date(row_data$date_heure, format = date_format)
+print(data$date_heure)
 
 # visualize dates distribution
-hist(data$date_heure, breaks = 100, main = "Distribution des dates", xlab = "Date")
+#hist(row_data$date_heure, breaks = 100, main = "Distribution des dates", xlab = "Date")
 
 ```
 
